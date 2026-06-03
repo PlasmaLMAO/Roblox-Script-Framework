@@ -46,27 +46,59 @@ end)
 
 **`Framework:Tab(sectionName, tabName, tabIcon, columns, visible)`**
 Creates a new tab inside a collapsible section. `columns` is usually `2`. `visible` controls whether the section starts expanded.
+```lua
+local myTab = Framework:Tab("Main", "My Feature", "star", 2, true)
+```
 
 **`Framework:Group(tab, name, column, groupIcon)`**
 Creates a groupbox inside a tab. `column` is `1` for left, `2` for right.
+```lua
+local myGroup = Framework:Group(myTab, "Controls", 1, "sliders")
+```
 
 **`Framework:Toggle(group, id, name, default, callback)`**
 On/off switch. `default` is `true` or `false`. Callback receives the new boolean.
+```lua
+Framework:Toggle(myGroup, "my_toggle", "Enable", false, function(val)
+    print("enabled:", val)
+end)
+```
 
 **`Framework:Slider(group, id, name, min, max, default, suffix, callback)`**
 Number slider. `suffix` is the unit shown after the value, e.g. `" studs/s"`. Callback receives the current number.
+```lua
+Framework:Slider(myGroup, "my_speed", "Walk Speed", 0, 200, 16, " studs/s", function(val)
+    print("speed:", val)
+end)
+```
 
 **`Framework:Dropdown(group, id, name, options, default, multiple, callback)`**
 Select menu. `options` is a table of strings. `multiple` allows picking more than one. Callback receives a table of selected strings.
+```lua
+Framework:Dropdown(myGroup, "my_mode", "Mode", {"Fast", "Slow", "Auto"}, {"Fast"}, false, function(selected)
+    print("mode:", selected[1])
+end)
+```
 
 **`Framework:Button(group, id, name, btnIcon, callback)`**
 Clickable button. Callback fires on click.
+```lua
+Framework:Button(myGroup, "my_btn", "Do Something", "play", function()
+    print("clicked")
+end)
+```
 
 **`Framework:Label(group, id, name, labelIcon)`**
 Static single-line text. Good for status readouts.
+```lua
+Framework:Label(myGroup, "my_label", "Status: Active", "activity")
+```
 
 **`Framework:Paragraph(group, id, name, content)`**
 Title + body text block. Good for descriptions or multi-line info.
+```lua
+Framework:Paragraph(myGroup, "my_para", "About", "This feature does something cool.")
+```
 
 **`Framework:Get(id)` / `Framework:Set(id, value)`**
 Read or write any element's value from anywhere in your script.
