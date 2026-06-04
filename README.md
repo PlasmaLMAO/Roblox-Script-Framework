@@ -1,4 +1,5 @@
-# Plasmas Framework
+# Starlight Framework made by plasma
+
 A lightweight framework around the [Starlight UI Library](https://docs.nebulasoftworks.xyz). Instead of writing full Starlight table syntax every time, this framework gives you short one-line calls that handle everything for you.
 
 > **Disclaimer:** By using this framework you agree that I (plasma / 8zsk) is not responsible for any consequences resulting from its use — including account bans, data loss, or violations of Robloxs Terms of Service. Use at your own risk.
@@ -6,10 +7,6 @@ A lightweight framework around the [Starlight UI Library](https://docs.nebulasof
 ---
 
 ## Getting Started
-
-```lua
-local Framework = loadstring(game:HttpGet("YOUR_RAW_GITHUB_URL_HERE"))()
-```
 
 Edit the `CONFIG` table at the top to set your scripts name, theme, keybind, and config folder before loading.
 
